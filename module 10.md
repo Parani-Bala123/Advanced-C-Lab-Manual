@@ -9,16 +9,44 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+struct Node *next; char data;
+}*head;
+void search(char data)
+{
+struct Node *ptr; char item=data; int i=0,flag;
+ptr = head; if(ptr == NULL)
+{
+printf("Empty List\n");
+}
+else
+{
+while (ptr!=NULL)
+{
+if(ptr->data == item)
+{
+printf("item %c found at location %d ",item,i+1); flag=0;
+}
+i++;
+ptr = ptr -> next;
+}
+if(flag!=0)
+{
+printf("Item not found\n");
+}
+}
 
-//type your code here
+}
+```
 
 Output:
 
-//paste your output here
-
+<img width="567" height="393" alt="image" src="https://github.com/user-attachments/assets/a7530843-62fb-4ad8-bbfc-03293d8f163f" />
 
 
 Result:
+
 Thus, the program to search a given element in the given linked list is verified successfully.
 
 
@@ -33,15 +61,34 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{ char data;
+struct Node *next;
+}*head;
 
-//type your code here
+void insert(char data)
+{
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; temp=head; return;
+}
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; temp->next=n;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="380" height="342" alt="image" src="https://github.com/user-attachments/assets/b855d3f9-5d40-417b-8ad0-e633aa8617d9" />
 
  
 Result:
+
 Thus, the program to insert a node in a linked list is verified successfully.
 
 
@@ -57,15 +104,29 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
+```
+struct Node
+{
+struct Node *prev; struct Node *next; int data;
+}*head;
+void display()
+{
+struct Node *temp; temp=head; while(temp!=0)
+{
+printf("%d ",temp->data); temp=temp->next;
+}
 
-//type your code here
 
+
+}
+```
 Output:
 
-//paste your output here
+<img width="316" height="382" alt="image" src="https://github.com/user-attachments/assets/3442be44-ce48-47cb-b764-38eef280e79d" />
 
 
 Result:
+
 Thus, the program to traverse a doubly linked list is verified successfully. 
 
 
@@ -82,15 +143,40 @@ Algorithm:
 5.	Set the new node's prev pointer to the last node and update the last node's next pointer to the new node.
  
 Program:
+```
+struct Node
+{
+struct Node *prev; struct Node *next; float data;
+}*head;
+void insert(float data)
+{
 
-//type your code here
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; n->prev=NULL; temp=head;
+}
+else
+{
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; n->prev=temp; temp->next=n;
+}
+
+
+}
+```
 
 Output:
 
-//paste your output here
+<img width="379" height="514" alt="image" src="https://github.com/user-attachments/assets/8eb31e1c-d9f1-45f3-82f9-c87e2ed51895" />
 
 
 Result:
+
 Thus, the program to insert an element in doubly linked list is verified successfully.
 
 
@@ -124,18 +210,39 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 
 Program:
-
-//type your code here
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
+void delete()
+{
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    else if(head->next==NULL){
+        head=NULL;
+        free(head);
+        printf("Node deleted from the begining ...\n");
+    }
+    else{
+        struct Node *ptr;
+        ptr=head;
+        head=head->next;
+        free(ptr);
+        printf("Node deleted from the begining ...\n");
+    }
+}
+```
 
 Output:
 
-//paste your output here
-
-
-
+<img width="820" height="536" alt="image" src="https://github.com/user-attachments/assets/226c18d2-564f-4eda-8beb-027aa2ad4d1c" />
 
 
 Result:
+
 Thus, the function that deletes a given element from a linked list is verified successfully.
 
 
